@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# FoodHub - Next.js Application
 
-## Getting Started
+## Project Description
+FoodHub is a simple web application built with **Next.js 15/16 (App Router)** and **Express.js**. The app demonstrates public and protected pages with a basic authentication mechanism. Users can view items, see item details, and log in to access protected content.  
 
-First, run the development server:
+The app includes:
+- Landing page with multiple sections
+- Mock authentication
+- Public item listing and item details
 
+---
+
+## Table of Contents
+- [Project Description](#project-description)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Setup & Installation](#setup--installation)
+- [Routes Summary](#routes-summary)
+- [Login Credentials](#login-credentials)
+- [Live Demo](#live-demo)
+
+---
+
+## Features
+
+### Core Features
+1. **Landing Page**
+   - Includes **7 sections** (besides Navbar & Footer)
+   - Navbar links to **Login** and **Items/List** pages
+   - Publicly accessible (no authentication required)
+
+2. **Authentication**
+   - Mock login with **hardcoded email & password**
+   - Credentials stored in **cookies**
+   - Protected routes redirect unauthenticated users
+   - On successful login, user is redirected to **Items/List** page
+
+3. **Item List Page**
+   - Publicly accessible
+   - Fetches and displays a list of items from an **Express.js API/JSON**
+   - Each item card shows:
+     - Name
+     - Description
+     - Price
+     - Image
+
+4. **Item Details Page**
+   - Displays full details of a single product
+   - Publicly accessible
+
+---
+
+## Technologies Used
+- **Next.js 15/16** (App Router)
+- **Express.js** for API / JSON data handling
+- **Tailwind CSS** (or any preferred styling solution)
+- **React** for frontend components
+- **js-cookie** for storing authentication tokens
+
+---
+
+## Setup & Installation
+
+1. **Clone the repository**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/ahnafabid10/Food-Project1st-next.js.git
+cd Food-Project1st-next.js
+```
+Install dependencies for Next.js
+```
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install dependencies for Express.js API
+```
+cd server
+npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Run the Express server
+```
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Run the Next.js app
+```
+npm run dev
+```
 
-## Learn More
+Open the app
+Go to http://localhost:3000
 
-To learn more about Next.js, take a look at the following resources:
+Routes Summary
+Route	Access	Description
+/	Public	Landing page with 7 sections
+/login	Public	Login page for authentication
+/items	Public	List of all items
+/items/[id]	Public	Item details page
+Login Credentials (Mock)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Email: admin@foodhub.com
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Password: password123
