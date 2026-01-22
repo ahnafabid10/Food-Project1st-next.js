@@ -44,7 +44,7 @@ const NewsletterSection = () => {
 
           <button
             type="submit"
-            className="flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-900 transition"
+            className="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-xl  transition"
           >
             Subscribe <FaPaperPlane />
           </button>

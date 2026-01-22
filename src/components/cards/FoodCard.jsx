@@ -2,35 +2,44 @@ import Link from "next/link";
 
 const FoodCard = ({ food }) => {
   return (
-    <div className="w-full max-w-sm rounded-xl overflow-hidden bg-white shadow-md hover:shadow-lg transition">
+    <div className="w-full rounded-2xl bg-white overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
       {/* Image */}
-      <img
-        src={food.foodImg}
-        alt={food.title}
-        className="w-full h-48 object-cover"
-      />
+      <div className="relative overflow-hidden">
+        <img
+          src={food.foodImg}
+          alt={food.title}
+          className="w-full h-44 sm:h-48 md:h-52 object-cover group-hover:scale-105 transition duration-300"
+        />
+
+        {/* Category */}
+        <span className="absolute top-3 left-3 bg-orange-500 text-white text-xs sm:text-sm px-3 py-1 rounded-full shadow">
+          {food.category}
+        </span>
+      </div>
 
       {/* Content */}
-      <div className="p-4 space-y-2">
-        <h3 className="text-lg font-semibold text-gray-800">
+      <div className="p-4 sm:p-5 space-y-3">
+        <h3 className="text-base sm:text-lg font-semibold text-gray-800 line-clamp-1">
           {food.title}
         </h3>
 
-        <p className="text-sm text-gray-500">
-          Category: {food.category}
-        </p>
-
-        <p className="text-base font-bold text-green-600">
+        {/* Price */}
+        <p className="text-lg sm:text-xl font-bold text-orange-500">
           ৳ {food.price}
         </p>
 
-        {/* Buttons */}
-        <div className="flex gap-3 pt-3">
-          <Link href={`/foods/${food.id}`} className="flex-1 bg-blue-600 text-white text-sm py-2 rounded-lg hover:bg-blue-700 transition">
+        {/* Actions */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
+          <Link
+            href={`/foods/${food.id}`}
+            className="text-center bg-orange-500 text-white text-sm sm:text-base py-2.5 rounded-xl hover:bg-orange-600 transition font-medium"
+          >
             View Details
           </Link>
 
-          <button className="flex-1 bg-gray-100 text-gray-800 text-sm py-2 rounded-lg hover:bg-gray-200 transition">
+          <button
+            className="border border-orange-500 text-orange-500 text-sm sm:text-base py-2.5 rounded-xl hover:bg-orange-50 transition font-medium"
+          >
             Add to Cart
           </button>
         </div>

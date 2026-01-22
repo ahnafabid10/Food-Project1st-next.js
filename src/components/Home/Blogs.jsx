@@ -80,7 +80,7 @@ const BlogsSection = () => {
               {/* Button always at bottom */}
               <button
                 href={`/blogs/${blog.id}`}
-                className="mt-auto inline-block text-left text-primary font-medium hover:underline"
+                className="mt-auto inline-block text-left text-orange-500 hover:text-orange-600 font-medium hover:underline"
               >
                 Read More →
               </button>

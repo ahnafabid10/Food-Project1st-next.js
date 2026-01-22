@@ -24,41 +24,53 @@ const Page = async ({ params }) => {
   const { title, foodImg, price, video, category, area } = food;
 
   return (
-    <div className="max-w-3xl mx-auto p-6">
-      {/* Food Image */}
-      <img
-        src={foodImg}
-        alt={title}
-        className="w-full h-72 object-cover rounded-xl shadow"
-      />
+   <div className="max-w-3xl mx-auto px-4 sm:px-6 py-6">
+  {/* Food Image */}
+  <div className="overflow-hidden rounded-2xl shadow-md">
+    <img
+      src={foodImg}
+      alt={title}
+      className="w-full h-56 sm:h-72 md:h-80 object-cover hover:scale-105 transition duration-300"
+    />
+  </div>
 
-      {/* Title */}
-      <h1 className="text-3xl font-bold mt-5">{title}</h1>
+  {/* Title */}
+  <h1 className="text-2xl sm:text-3xl font-bold mt-5 text-black dar">
+    {title}
+  </h1>
 
-      {/* Category + Area */}
-      <div className="flex gap-4 mt-2 text-gray-600">
-        <p className="bg-gray-100 px-3 py-1 rounded-lg text-sm">{category}</p>
-        <p className="bg-gray-100 px-3 py-1 rounded-lg text-sm">{area}</p>
-      </div>
+  {/* Category + Area */}
+  <div className="flex flex-wrap gap-3 mt-3">
+    <span className="bg-orange-100 text-orange-600 px-4 py-1.5 rounded-full text-sm font-medium">
+      {category}
+    </span>
+    <span className="bg-orange-100 text-orange-600 px-4 py-1.5 rounded-full text-sm font-medium">
+      {area}
+    </span>
+  </div>
 
-      {/* Price */}
-      <p className="text-2xl font-semibold mt-4">{price}৳</p>
+  {/* Price */}
+  <p className="text-2xl sm:text-3xl font-bold text-orange-500 mt-4">
+    ৳ {price}
+  </p>
 
-      {/* Buttons */}
-      <div className="flex gap-4 mt-6">
-        <a
-          href={video}
-          target="_blank"
-          className="flex-1 bg-red-600 text-white py-3 rounded-lg text-center hover:bg-red-700"
-        >
-          Watch Video
-        </a>
+  {/* Buttons */}
+  <div className="flex flex-col sm:flex-row gap-4 mt-6">
+    <a
+      href={video}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex-1 text-center bg-orange-500 text-white py-3 rounded-xl font-semibold hover:bg-orange-600 transition"
+    >
+      ▶ Watch Video
+    </a>
 
-        <button className="flex-1 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">
-          Add to Cart
-        </button>
-      </div>
-    </div>
+    <button className="flex-1 border-2 border-orange-500 text-orange-500 py-3 rounded-xl font-semibold hover:bg-orange-50 transition">
+      🛒 Add to Cart
+    </button>
+  </div>
+</div>
+
   );
 };
 

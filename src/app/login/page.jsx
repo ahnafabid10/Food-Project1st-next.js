@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Cookies from "js-cookie";
 
 const MOCK_EMAIL = "admin@foodhub.com";
 const MOCK_PASSWORD = "password123";
@@ -15,14 +14,13 @@ const LoginPage = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    if (email === MOCK_EMAIL && password === MOCK_PASSWORD) { 
+      document.cookie=" auth=true; path:/"; 
+            alert('Login Successful')
 
-    // Check hardcoded credentials
-    if (email === MOCK_EMAIL && password === MOCK_PASSWORD) {
-      // Store in cookie (expires in 1 day)
-      Cookies.set("auth", "true", { expires: 1 });
+      // Cookies.set("auth", "true", { expires: 1 });
+      router.push("/foods");
 
-      // Redirect to items/lists page
-      router.push("/items/lists");
     } else {
       setError("Invalid email or password");
     }
